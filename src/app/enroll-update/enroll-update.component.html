@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update Students</ion-title>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <ion-toast
+      [isOpen]="isToastOpen"
+      message="Update SuccussFully"
+      duration="3000"
+    ></ion-toast>
+    <form #enroll="ngForm" (submit)="UpdateStudent(enroll?.value)">
+      <ion-input
+        type="text"
+        name="studentname"
+        class="input"
+        label="Student Name : {{ updateStudentArray?.studentname }}"
+        labelPlacement="floating"
+        ngModel="{{ updateStudentArray?.studentname }}"
+      ></ion-input>
+
+      <ion-input
+        name="cnic"
+        class="input"
+        label="CNIC : {{ updateStudentArray?.cnic }}"
+        labelPlacement="floating"
+        [counter]="true"
+        maxlength="13"
+        [counterFormatter]="customCounterFormatter"
+        ngModel="{{ updateStudentArray?.cnic }}"
+      ></ion-input>
+
+      <ion-input
+        type="text"
+        name="fathername"
+        class="input"
+        label="Father Name : {{ updateStudentArray?.fathername }}"
+        labelPlacement="floating"
+        ngModel="{{ updateStudentArray?.fathername }}"
+      ></ion-input>
+
+      <ion-input
+        type="number"
+        name="class"
+        class="input"
+        label="Class : {{ updateStudentArray?.class }}"
+        labelPlacement="floating"
+        ngModel="{{ updateStudentArray?.class }}"
+      ></ion-input>
+
+      <ion-input
+        type="text"
+        name="section"
+        class="input"
+        label="Section : {{ updateStudentArray?.section }}"
+        labelPlacement="floating"
+        ngModel="{{ updateStudentArray?.section }}"
+      ></ion-input>
+
+      <ion-input
+        type="text"
+        name="address"
+        class="input"
+        label="Address : {{ updateStudentArray?.address }}"
+        labelPlacement="floating"
+        ngModel="{{ updateStudentArray?.address }}"
+      ></ion-input>
+      <ion-button type="submit" class="btn" expand="block">Update</ion-button>
+    </form>
+  </div>
+</ion-content>

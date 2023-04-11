@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Enroll New Students</ion-title>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div>
+    <ion-toast
+      [isOpen]="isToastOpen"
+      message="Registration SuccussFull"
+      duration="3000"
+    ></ion-toast>
+    <form
+      #enroll="ngForm"
+      (submit)="enrollStudent(enroll.value); enroll.reset()"
+    >
+      <ion-input
+        type="text"
+        name="studentname"
+        class="input"
+        label="Student Name"
+        labelPlacement="floating"
+        ngModel
+        required
+        #studentname="ngModel"
+        [(ngModel)]="name"
+        minlength="3"
+        maxlength="30"
+        pattern="[a-zA-Z ]*"
+      ></ion-input>
+      <span
+        *ngIf="studentname.invalid && studentname.touched"
+        style="color: red; padding-top: 10px; padding-bottom: 10px"
+        >Name at least 3 characters
+      </span>
+      <ion-input
+        name="cnic"
+        class="input"
+        label="Enter Student CNIC without (-)"
+        labelPlacement="floating"
+        maxlength="13"
+        minlength="13"
+        [(ngModel)]="cnicNumber"
+        pattern="[0-9]*"
+        (input)="onCnicInput($event)"
+        required
+      ></ion-input>
+      <span style="color: red; padding-top: 10px; padding-bottom: 10px">{{
+        cnicError
+      }}</span>
+      <ion-input
+        type="text"
+        name="fathername"
+        class="input"
+        label="Father Name"
+        labelPlacement="floating"
+        ngModel
+        required
+        #fathername="ngModel"
+        [(ngModel)]="fatherName"
+        minlength="3"
+        maxlength="30"
+        pattern="[a-zA-Z ]*"
+      ></ion-input>
+      <span
+        *ngIf="fathername.invalid && fathername.touched"
+        style="color: red; padding-top: 10px; padding-bottom: 10px"
+        >Name at least 3 digits and should be characters only</span
+      >
+      <ion-input
+        type="number"
+        name="class"
+        class="input"
+        label="Class"
+        labelPlacement="floating"
+        ngModel
+      ></ion-input>
+
+      <ion-input
+        type="text"
+        name="section"
+        class="input"
+        label="Section"
+        labelPlacement="floating"
+        ngModel
+        [(ngModel)]="sectionValue"
+        #section="ngModel"
+        required
+        pattern="[a-zA-Z]*"
+        maxlength="2"
+      ></ion-input>
+      <span
+        *ngIf="section.invalid && section.touched"
+        style="color: red; padding-top: 10px; padding-bottom: 10px"
+        >Name at least 3 digits and should be characters only</span
+      >
+      <ion-input
+        type="text"
+        name="address"
+        class="input"
+        label="Address"
+        labelPlacement="floating"
+        ngModel
+        required
+      ></ion-input>
+
+      <ion-button
+        [disabled]="enroll.invalid"
+        type="submit"
+        class="btn"
+        expand="block"
+        >Enroll</ion-button
+      >
+    </form>
+  </div>
+</ion-content>

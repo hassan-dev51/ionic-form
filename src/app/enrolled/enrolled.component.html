@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Enrolled Students </ion-title>
+    <ion-back-button slot="start" defaultHref="home"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <p style="color: red; text-align: center">
+    {{ deleteMessage }}
+  </p>
+  <ion-card *ngFor="let item of enrolledStudents">
+    <ion-card-header>
+      <ion-card-subtitle>Name</ion-card-subtitle>
+      <ion-card-title>{{ item.studentname }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-subtitle>Father Name</ion-card-subtitle>
+      <ion-card-title>{{ item.fathername }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-subtitle>CNIC</ion-card-subtitle>
+      <ion-card-title>{{ item.cnic }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-subtitle>Class</ion-card-subtitle>
+      <ion-card-title>{{ item.class }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-subtitle>Section</ion-card-subtitle>
+      <ion-card-title>{{ item.section }}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-card-subtitle>Address</ion-card-subtitle>
+      <ion-card-title>{{ item.address }}</ion-card-title>
+    </ion-card-header>
+    <div class="enroll-btn">
+      <ion-button (click)="deleteStudent(item.id)">Delete</ion-button>
+      <ion-button routerLink="/home/enroll-updata/{{ item.id }}"
+        >Updata</ion-button
+      >
+    </div>
+  </ion-card>
+</ion-content>

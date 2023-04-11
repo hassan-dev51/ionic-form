@@ -1,0 +1,13 @@
+{
+  "students": [
+    {
+      "studentname": "hassan",
+      "cnic": "3460356285587",
+      "fathername": "ali",
+      "class": "2",
+      "section": "a",
+      "address": "sialkot",
+      "id": 2
+    }
+  ]
+}

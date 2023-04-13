@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bill Calculation</ion-title>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <h1 style="text-align: center">Calculate the bill</h1>
+  </div>
+  <div>
+    <form #bill="ngForm" (submit)="submit(consumedUnits); bill.reset()">
+      <ion-input
+        type="number"
+        minlength="1"
+        label="Enter Units"
+        [(ngModel)]="consumedUnits"
+        [ngModelOptions]="{ standalone: true }"
+      ></ion-input>
+      <button type="submit" [disabled]="!bill.form.valid">Calculate</button>
+    </form>
+    <p *ngIf="totalbill">Your total bill : {{ totalbill }}</p>
+  </div>
+</ion-content>

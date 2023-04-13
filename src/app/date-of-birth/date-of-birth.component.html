@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Check You Date of Birth </ion-title>
+    <ion-back-button slot="start" defaultHref="home"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-datetime
+    presentation="date"
+    [(ngModel)]="selectedDate"
+    (ionChange)="calculate()"
+  ></ion-datetime>
+  <ion-modal [keepContentsMounted]="true">
+    <ng-template>
+      <ion-datetime id="date"></ion-datetime>
+    </ng-template>
+  </ion-modal>
+  <p *ngIf="differenceInDays">
+    The difference between the selected date and the current date is
+    {{ differenceInDays }} days.
+  </p>
+
+  <ion-item *ngIf="differenceInDays">
+    <ion-label>Days Difference:</ion-label>
+    <ion-text>{{ differenceInDays }}</ion-text>
+  </ion-item>
+
+  <ion-item *ngIf="formattedDuration">
+    <ion-label>Formatted Difference:</ion-label>
+    <ion-text>
+      {{ formattedDuration?.years }} years,
+      {{ formattedDuration?.months }} months, {{ formattedDuration?.days }} days
+    </ion-text>
+  </ion-item>
+</ion-content>

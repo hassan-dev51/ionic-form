@@ -23,4 +23,21 @@ export class StudentService {
     console.log(data, 'update data');
     return this.http.put(`http://localhost:3000/students/${data.id}`, data);
   }
+  getPrimeNumber(start: number, end: number): number[] {
+    const primes: number[] = [];
+    for (let i = start; i <= end; i++) {
+      let isPrime = true;
+      for (let j = 2; j <= Math.sqrt(i); j++) {
+        if (i % j === 0) {
+          isPrime = false;
+          break;
+        }
+      }
+
+      if (isPrime && i > 1) {
+        primes.push(i);
+      }
+    }
+    return primes;
+  }
 }

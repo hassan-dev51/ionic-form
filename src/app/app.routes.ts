@@ -4,6 +4,7 @@ import { EnrolledComponent } from './enrolled/enrolled.component';
 import { EnrollUpdateComponent } from './enroll-update/enroll-update.component';
 import { DateOfBirthComponent } from './date-of-birth/date-of-birth.component';
 import { BillComponent } from './bill/bill.component';
+import { PrimeComponent } from './prime/prime.component';
 
 export const routes: Routes = [
   {
@@ -34,5 +35,9 @@ export const routes: Routes = [
   {
     path: 'home/bill',
     component: BillComponent,
+  },
+  {
+    path: 'home/prime-number',
+    component: PrimeComponent,
   },
 ];

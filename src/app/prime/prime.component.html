@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Calculate Prime Numbers</ion-title>
+    <ion-back-button slot="start" defaultHref="/"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-item>
+      <ion-input
+        type="number"
+        label="Enter First Number"
+        [(ngModel)]="start"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        type="number"
+        label="Enter Second Number"
+        [(ngModel)]="end"
+      ></ion-input>
+    </ion-item>
+    <ion-button (click)="findPrimes()">Find Primes</ion-button>
+  </div>
+
+  <ion-item *ngFor="let prime of primes">{{ prime }}</ion-item>
+</ion-content>
